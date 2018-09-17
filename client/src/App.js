@@ -1,20 +1,23 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import EmailList from "./components/emailList";
+import Email from "./components/email";
 
 class App extends Component {
   state = {
-    response: ""
+    emails: [],
+    isEmailOpen: false,
+    currentEmail: {}
   };
 
   componentDidMount() {
     this.callApi()
-      .then(res => this.setState({ response: res.express }))
+      .then(res => this.setState({ emails: res }))
       .catch(err => console.log(err));
   }
 
   callApi = async () => {
-    const response = await fetch("/api/hello");
+    const response = await fetch("/api/emails");
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
@@ -22,14 +25,33 @@ class App extends Component {
     return body;
   };
 
+  setCurrentEmail = email => {
+    this.setState({ isEmailOpen: true, currentEmail: email });
+  };
+
+  onEmailDelete = () => {
+    this.callApi()
+      .then(res => this.setState({ emails: res }))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">{this.state.response}</p>
+      <div className="container">
+        <div className="list">
+          <EmailList
+            emails={this.state.emails}
+            setCurrentEmail={this.setCurrentEmail}
+          />
+        </div>
+        <div className="email">
+          {this.state.isEmailOpen ? (
+            <Email
+              currentEmail={this.state.currentEmail}
+              onEmailDelete={this.onEmailDelete}
+            />
+          ) : null}
+        </div>
       </div>
     );
   }

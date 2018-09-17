@@ -1,28 +1,60 @@
-.App {
-  text-align: center;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+li {
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+table {
+  width: 100%;
 }
 
-.App-title {
-  font-size: 1.5em;
+button {
+  width: 100px;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
-.App-intro {
-  font-size: large;
+.container {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.email-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-heading {
+  margin-bottom: 0.5em;
+}
+
+.email-subject {
+  color: grey;
+}
+
+.list {
+  width: 25%;
+}
+
+.email {
+  width: 75%;
+}
+
+.card {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #e3e3e3;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.right-text {
+  float: right;
 }
