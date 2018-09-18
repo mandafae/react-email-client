@@ -30,6 +30,7 @@ class App extends Component {
   };
 
   onEmailDelete = () => {
+    this.setState({ isEmailOpen: false });
     this.callApi()
       .then(res => this.setState({ emails: res }))
       .catch(err => console.log(err));
