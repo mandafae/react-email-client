@@ -6,7 +6,8 @@
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "db": "createdb react-email-client_dev",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\" \"yarn db\""
   },
   "dependencies": {
     "express": "^4.16.2",
