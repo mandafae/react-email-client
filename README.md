@@ -1,3 +1,6 @@
+# React email client
+This is just a simple email client that I created with React, Node/Express, and a PostgreSQL database.
+
 ## Instructions for local setup:
 
 1. Clone the repo.
