@@ -10,7 +10,7 @@
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "knex": "^0.15.2",
     "pg": "^7.4.3"
   },
